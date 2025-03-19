@@ -36,8 +36,10 @@ body::before {
 }
 
 header {
-  background-image: linear-gradient(to bottom right,rgb(39, 122, 0), rgb(10, 60, 4)  );
-    color: #fff;
+  z-index: 8;
+  background-image: "https://cdn2.hubspot.net/hub/53/hubfs/image8-2.jpg?width=595&name=image8-2.jpg";
+  color: black;
+    background-color: black;
     padding: 20px 0;
     text-align: center;
     position: relative;
@@ -45,6 +47,7 @@ header {
 }
 
 .sticky {
+  
     background-color: #2e6603;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -736,4 +739,65 @@ a {
     overflow: hidden; 
   }
   
-  
+  /* Add these styles to your existing CSS */
+
+/* Hamburger Menu Styles */
+.mobile-toggle {
+  display: none;
+  cursor: pointer;
+  padding: 15px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 1000;
+}
+
+.mobile-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .main_nav ul {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      position: absolute;
+      top: 10px;
+      left: 0;
+      background-color: #2e6603;
+      padding: 20px 0;
+  }
+ 
+
+  .main_nav ul li {
+      margin: 10px 0;
+      text-align: center;
+  }
+
+  .mobile-toggle {
+      display: block;
+  }
+
+  /* Hamburger animation */
+  #menu-toggle:checked ~ ul {
+      display: flex;
+  }
+
+  #menu-toggle:checked + .mobile-toggle span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  #menu-toggle:checked + .mobile-toggle span:nth-child(2) {
+      opacity: 0;
+  }
+
+  #menu-toggle:checked + .mobile-toggle span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+  }
+}
